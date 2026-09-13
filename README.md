@@ -3,7 +3,7 @@
 The German a quest giver says out loud, for Warlords of Draenor: quest ids
 **34,576–39,694**.
 
-**15,041 clips, 19.0 hours.** Both are counted from this pack's own duration
+**15,041 clips, 17.5 hours.** Both are counted from this pack's own duration
 table in `Part.lua` — the table the engine plays from — so they are what the
 pack can actually be asked for, not what happens to sit on disk.
 
@@ -26,15 +26,14 @@ Everything that decides when to play a clip is in the engine addon,
 [QuestWordHunter — German Voiceover](https://github.com/Ironship/WordHunterWoW-Voice-DE).
 It is a hard dependency: without it the client will not load this pack at all.
 
-## The audio is not in this repository
+## The audio is in this repository
 
-`sounds/` is gitignored, and `.gitignore` says why: it is 336 MB here and
-around seven gigabytes across the twelve packs, and how that should ship has
-not been decided. So a checkout of this repository is not installable by itself
-— it is the manifest, the licence and the duration table, and no sound.
+`sounds/` is committed, and `.gitignore` says why. It is 311 MB here, out of
+about 5.7 gigabytes across the twelve packs. So a checkout of this repository is
+installable by itself: copy the folder into `Interface/AddOns` and it plays.
 
-The playable pack is assembled by `Tools/build_pack.py` in the engine
-repository, which takes these files and adds the clips:
+`Tools/build_pack.py` in the engine repository assembles the same thing, and is
+the quicker route when the clips have just been regenerated:
 
 ```
 python Tools/build_pack.py --only Draenor --out "…/Interface/AddOns"
